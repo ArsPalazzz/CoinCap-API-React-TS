@@ -1,0 +1,90 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw;
+    font-size: 1.1em;
+
+    table {
+        border: 1px solid #dddddd;
+	    border-collapse: collapse;
+
+        th {
+            font-weight: bold;
+            padding: 16px;
+            background: #efefef;
+            border: 1px solid #dddddd;
+        }
+
+        td {
+            border: 1px solid #dddddd;
+	        padding: 16px;
+        }
+
+        .addIconTd {
+            text-align: center;
+            font-size: 1.3em;
+
+            .addIcon {
+               
+                cursor: pointer;
+                transition: 0.3s linear all;
+            }
+           
+        }
+
+        .addIcon:hover {
+            transform: scale(1.5);
+        }
+    }
+
+    
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .pageItem {
+        display: flex;
+        border: 1px solid black;
+        margin: 0.5vw;
+        padding: 5px 5px;
+        // width: 2vw;
+        // height: 2vw;
+        justify-content: center;
+        align-self: center;
+        transition: 0.3s linear background-color;
+
+        .pageLink {
+            color: black;
+            float: left;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+        
+      }
+    
+      .pageItem.active {
+        background-color: rgb(156, 156, 156);
+       
+      }
+    
+      .pageItem:hover {
+        cursor: pointer;
+        background-color: rgb(201, 201, 201);
+      }
+  }
+
+  
+  
