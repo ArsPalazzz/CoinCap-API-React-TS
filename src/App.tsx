@@ -7,6 +7,7 @@ function App() {
 
   const [coins, setCoins] = useState([]);
   const [pageCount, setPageCount] = useState(0);
+  const [modalShow, setModalAdd] = useState(false)
 
   useEffect(() => {
     const getCoins = async () => {
@@ -85,6 +86,8 @@ function App() {
       />
     </div>
   );
+
+  
 }
 
 export default App;
