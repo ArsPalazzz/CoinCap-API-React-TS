@@ -1,46 +1,80 @@
-import { useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import classes from './../sass/modalAddCoin.module.scss'
+import { usePortfolioContext } from './PortfolioContext';
+import { ModalAddCoinProps, CoinInPortfolioObject } from "../models";
 
-export const ModalAddCoin = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+export const ModalAddCoin = ({ isOpen, onClose, priceForOne, nameForModal, idForModal } : ModalAddCoinProps) => {
 
-    const openModal = () => {
-        setIsModalOpen(true);
+
+const { setPortfolioData, setLastAddedItem } = usePortfolioContext();
+    
+
+    const [visible, setVisible] = useState(isOpen);
+
+
+
+    const addCoin = () => {
+        const newAmount = inputValue; 
+        if (!isNaN(newAmount) && newAmount > 0) {
+            const newData = {
+                id: idForModal,
+                name: nameForModal,
+                amount: newAmount,
+                currentCourse: priceForOne,
+                priceUsd: newAmount * priceForOne,
+            };
+
+            setPortfolioData((prevData: CoinInPortfolioObject[]) => [...prevData, newData]);
+            setLastAddedItem(newData);
+
+            setInputValue(0);
+            closeModal();
+        }
     };
+
+
 
     const closeModal = () => {
-        setIsModalOpen(false);
+        onClose(false, '0', 0, '0');
     };
 
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(parseFloat(event.target.value));
+    }
+
+    const [inputValue, setInputValue] = useState(0);
+
+    useEffect(() => {
+        setVisible(isOpen);
+    }, [isOpen]);
+
+
+
     return (
-        <div className={classes.App}>
-            {/* <h1>Пример модального окна в React</h1> */}
-            <button onClick={openModal}>Add to portfolio</button>
-
-
-            {isModalOpen && (
+        <div className={`modalA ${isOpen ? 'open' : ''}`}>
+            <div className={classes.App}>
                 <div className={classes.modalOverlay}>
                     <div className={classes.modal}>
                         <h2>Add coin to portfolio</h2>
                         <div className={classes.elementsGroup}>
                             <div className={classes.formElement}>
                                 <label>Amount</label>
-                                <input type="text" placeholder="0.000"></input>
+                                <input placeholder="0.000" type="number" inputMode="numeric" onChange={handleChange}></input>
                             </div>
                             <div className={classes.formElement}>
                                 <label>Price for 1 coin</label>
-                                <input type="text" value={135} disabled />
+                                <input type="text" value={priceForOne} disabled />
                             </div>
-                        </div>  
-                       
-                       <div className={classes.buttons}>
+
+                        </div>
+                        <p>Total price: {inputValue * priceForOne}</p>
+                        <div className={classes.buttons}>
                             <button onClick={closeModal} className={classes.closeBtn}>Close</button>
-                            <button onClick={closeModal} className={classes.addBtn}>Add</button>
-                       </div>
-                        
+                            <button onClick={addCoin} className={classes.addBtn}>Add</button>
+                        </div>
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 }

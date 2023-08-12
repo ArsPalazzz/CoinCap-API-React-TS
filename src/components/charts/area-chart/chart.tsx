@@ -1,6 +1,6 @@
 import { Line } from "react-chartjs-2"
 import {Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend} from 'chart.js';
-import {faker} from '@faker-js/faker';
+
 
 ChartJS.register(
     CategoryScale,
@@ -14,26 +14,12 @@ ChartJS.register(
   );
 
 
- 
-
- 
-
- 
 
 const AreaChart = ({value} : any) => {
 
-    // console.log(value)
-
-    // const dates = value.map((item : any) => item.date);
-    const labels = value.filter((item : any, index : any) => index % 3 === 0).map((item : any) => item.date.slice(0, -14));
+    const labels = value.filter((item : any, index : number) => index % 3 === 0).map((item : any) => item.date.slice(0, -14));
     
 
-    // const dates = ['a', 'b', 'c', 'd', ', '2022-08-17']
-
-    console.log('labels');
-    console.log(labels);
-    console.log('dates');
-    // console.log(dates)
 
     const chartOptions = {
         responsive: true,

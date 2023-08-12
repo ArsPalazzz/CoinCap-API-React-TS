@@ -9,3 +9,50 @@
     }
 }
 
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 94vw;
+        margin: auto;
+    
+        .chartBlock {
+           
+            margin: auto;
+            margin-top: 6vh;
+
+            canvas {
+                margin: auto !important;
+                height: 447px !important;
+                width: 724px !important;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+        margin: auto;
+
+        h2, p, button {
+            margin-left: 5vw;
+        }
+    
+        .chartBlock {
+           width: 100vw;
+            margin: auto;
+            margin-top: 6vh;
+
+            canvas {
+                margin: 0 !important;
+                height: 30vh !important;
+                width: 100vw !important;
+                font-size: 0.5em  !important;
+            }
+        }
+    }
+}
+
+
