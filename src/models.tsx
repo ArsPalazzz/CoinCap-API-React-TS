@@ -1,34 +1,37 @@
 export interface CoinObject {
-    id : string,
-    name: string,
-    priceUsd: number,
-    rank: number,
-    symbol: string
+  id: string;
+  name: string;
+  priceUsd: number;
+  rank: number;
+  symbol: string;
 }
 
-
 export interface CoinInPortfolioObject {
-    amount: number,
-    currentCourse: number,
-    id : string,
-    name: string,
-    priceUsd: number
+  amount: number;
+  currentCourse: number;
+  id: string;
+  name: string;
+  priceUsd: number;
 }
 
 export interface HistoryObject {
-    date: string,
-    time: number,
-    priceUsd: number
+  date: string;
+  time: number;
+  priceUsd: number;
 }
 
 export interface PaginationObject {
-    selected: number
+  selected: number;
 }
 
 export interface ModalAddCoinProps {
-    isOpen: boolean,
-    onClose: (isOpen: boolean, name: string, price: number, id: string) => void;
-    priceForOne: number,
-    nameForModal: string,
-    idForModal: string
+  isOpen: boolean;
+  onClose: (isOpen: boolean, name: string, price: number, id: string) => void;
+  priceForOne: number;
+  nameForModal: string;
+  idForModal: string;
+}
+
+export interface AreaChartProps {
+  value: HistoryObject[];
 }

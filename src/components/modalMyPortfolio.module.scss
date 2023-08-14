@@ -1,0 +1,205 @@
+.App {
+  .modalOpenEl {
+    cursor: pointer;
+  }
+
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal {
+      color: black;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 60vw;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      .closeBtn {
+        margin-left: auto;
+        display: block;
+        transform: scale(1.6);
+        transition: 0.2s linear transform;
+      }
+
+      .closeBtn:hover {
+        cursor: pointer;
+        transform: scale(2);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 4vh;
+      }
+
+      table {
+        border: 1px solid #dddddd;
+        border-collapse: collapse;
+        width: 100%;
+
+        th {
+          font-weight: bold;
+          padding: 16px;
+          background: #efefef;
+          border: 1px solid #dddddd;
+        }
+
+        td {
+          border: 1px solid #dddddd;
+          padding: 16px;
+          text-align: center;
+        }
+
+        .removeIconTd {
+          text-align: center;
+          font-size: 1.3em;
+
+          .removeIcon {
+            cursor: pointer;
+            transition: 0.3s linear all;
+          }
+        }
+
+        .removeIcon:hover {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .App {
+    .modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .modal {
+        border-radius: 8px;
+        padding: 20px;
+        width: 80vw;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+        .closeBtn {
+          margin-left: auto;
+          display: block;
+          transform: scale(1.6);
+          transition: 0.2s linear transform;
+        }
+
+        .closeBtn:hover {
+          transform: scale(2);
+        }
+
+        h2 {
+          margin-bottom: 4vh;
+        }
+
+        table {
+          border: 1px solid #dddddd;
+          width: 100%;
+
+          th {
+            padding: 16px;
+            border: 1px solid #dddddd;
+          }
+
+          td {
+            border: 1px solid #dddddd;
+            padding: 16px;
+          }
+
+          .removeIconTd {
+            font-size: 1.3em;
+
+            .removeIcon {
+              transition: 0.3s linear all;
+            }
+          }
+
+          .removeIcon:hover {
+            transform: scale(1.5);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    .modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8em;
+
+      .modal {
+        border-radius: 8px;
+        padding: 10px;
+        width: 90vw;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+        .closeBtn {
+          margin-left: auto;
+          display: block;
+          transform: scale(1.6);
+          transition: 0.2s linear transform;
+        }
+
+        .closeBtn:hover {
+          transform: scale(2);
+        }
+
+        h2 {
+          margin-bottom: 4vh;
+        }
+
+        table {
+          border: 1px solid #dddddd;
+          width: 100%;
+
+          th {
+            padding: 8px;
+            border: 1px solid #dddddd;
+          }
+
+          td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+          }
+
+          .removeIconTd {
+            font-size: 1.3em;
+
+            .removeIcon {
+              transition: 0.3s linear all;
+            }
+          }
+
+          .removeIcon:hover {
+            transform: scale(1.5);
+          }
+        }
+      }
+    }
+  }
+}
