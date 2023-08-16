@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import classes from "./coinpage.module.scss";
-import AreaChart from "../components/charts/area-chart/chart";
-import { ModalAddCoin } from "../components/ModalAddCoin";
+import AreaChart from "../../components/charts/area-chart/chart";
+import { ModalAddCoin } from "../../components/modalAddCoin/ModalAddCoin";
 import { useParams } from "react-router-dom";
-import { CoinObject, HistoryObject } from "../models";
-import { fetchCoin, fetchCoinHistory } from "../apiRequests/api";
+import { CoinObject, HistoryObject } from "../../models";
+import { fetchCoin, fetchCoinHistory } from "../../apiRequests/api";
+import ViewInfo from "./ViewInfo";
 
 export const CoinPage = () => {
   //заглушка
@@ -49,16 +50,13 @@ export const CoinPage = () => {
 
   return (
     <div className={classes.container}>
-      <h2>Name: {item.name}</h2>
-
-      <p>Symbol: {item.symbol}</p>
-      <p>Price: {item.priceUsd}</p>
-
-      <button
-        onClick={() => toggleModal(true, item.name, item.priceUsd, item.id)}
-      >
-        Add to portfolio
-      </button>
+      <ViewInfo
+        name={item.name}
+        symbol={item.symbol}
+        priceUsd={item.priceUsd}
+        toggleModal={toggleModal}
+        id={item.id}
+      />
 
       {isModalOpen && (
         <ModalAddCoin

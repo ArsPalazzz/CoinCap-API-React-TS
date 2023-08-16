@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import classes from "./modalAddCoin.module.scss";
-import { usePortfolioContext } from "./PortfolioContext";
-import { ModalAddCoinProps, CoinInPortfolioObject } from "../models";
+import { usePortfolioContext } from "../PortfolioContext";
+import { ModalAddCoinProps, CoinInPortfolioObject } from "../../models";
 
 export const ModalAddCoin = ({
   isOpen,

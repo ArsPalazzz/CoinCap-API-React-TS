@@ -35,3 +35,16 @@ export interface ModalAddCoinProps {
 export interface AreaChartProps {
   value: HistoryObject[];
 }
+
+export interface ViewInfoProps {
+  name: string;
+  symbol: string;
+  priceUsd: number;
+  id: string;
+  toggleModal: (
+    isOpen: boolean,
+    name: string,
+    price: number,
+    id: string
+  ) => void;
+}

@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import classes from "./main.module.scss";
-import { HiPlus } from "react-icons/hi";
 import ReactPaginate from "react-paginate";
-import { ModalAddCoin } from "../components/ModalAddCoin";
+import { ModalAddCoin } from "../../components/modalAddCoin/ModalAddCoin";
 import { useNavigate } from "react-router-dom";
-import { CoinObject, PaginationObject } from "../models";
-import { fetchCoinsLimitOffset, fetchCoinsNoLimit } from "../apiRequests/api";
+import { CoinObject, PaginationObject } from "../../models";
+import {
+  fetchCoinsLimitOffset,
+  fetchCoinsNoLimit,
+} from "../../apiRequests/api";
+import Table from "./Table";
 
 function MainPage() {
   const [coins, setCoins] = useState<CoinObject[]>([]);
@@ -56,36 +59,12 @@ function MainPage() {
 
   return (
     <div className={classes.container}>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Price (USD)</th>
-            <th>Add</th>
-            <th>More info</th>
-          </tr>
-        </thead>
-        <tbody>
-          {coins.map(({ id, name, rank, priceUsd }) => (
-            <tr key={id}>
-              <td>{rank}</td>
+      <Table
+        coins={coins}
+        toggleModal={toggleModal}
+        handleRowClick={handleRowClick}
+      />
 
-              <td>{name}</td>
-              <td>{priceUsd}</td>
-              <td className={classes.addIconTd}>
-                <HiPlus
-                  className={classes.addIcon}
-                  onClick={() => toggleModal(true, name, priceUsd, id)}
-                />
-              </td>
-              <td onClick={() => handleRowClick(id, name, priceUsd)}>
-                <p className={classes.moreInfoText}>Show more info</p>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
       {isModalOpen && (
         <ModalAddCoin
           isOpen={isModalOpen}

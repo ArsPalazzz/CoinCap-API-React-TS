@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import classes from "./index.module.scss";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 

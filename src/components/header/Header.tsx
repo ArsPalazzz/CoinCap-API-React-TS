@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import classes from "./header.module.scss";
-import { ModalMyPortfolio } from "./ModalMyPortfolio";
+import { ModalMyPortfolio } from "../modalMyPortfolio/ModalMyPortfolio";
 import { useParams } from "react-router-dom";
-import { usePortfolioContext } from "./PortfolioContext";
-import { CoinObject, CoinInPortfolioObject } from "./../models";
+import { usePortfolioContext } from "../PortfolioContext";
+import { CoinObject, CoinInPortfolioObject } from "../../models";
 
 export const Header = () => {
   const [popularCoins, setPopularCoins] = useState<CoinObject[]>();

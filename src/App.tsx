@@ -1,7 +1,7 @@
-import MainPage from "./pages/MainPage";
-import { Header } from "./components/Header";
+import MainPage from "./pages/MainPage/MainPage";
+import { Header } from "./components/header/Header";
 import { PortfolioProvider } from "./components/PortfolioContext";
-import { CoinPage } from "./pages/CoinPage";
+import { CoinPage } from "./pages/CoinPage/CoinPage";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

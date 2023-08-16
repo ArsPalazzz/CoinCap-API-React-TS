@@ -2,8 +2,8 @@ import { useState } from "react";
 import classes from "./modalMyPortfolio.module.scss";
 import { AiFillDelete } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
-import { usePortfolioContext } from "./PortfolioContext";
-import { CoinInPortfolioObject } from "../models";
+import { usePortfolioContext } from "../PortfolioContext";
+import { CoinInPortfolioObject } from "../../models";
 
 export const ModalMyPortfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
