@@ -4,11 +4,8 @@ import ReactPaginate from "react-paginate";
 import { ModalAddCoin } from "../../components/modalAddCoin/ModalAddCoin";
 import { useNavigate } from "react-router-dom";
 import { CoinObject, PaginationObject } from "../../models";
-import {
-  fetchCoinsLimitOffset,
-  fetchCoinsNoLimit,
-} from "../../apiRequests/api";
-import Table from "./Table";
+import { fetchCoinsLimitOffset, fetchCoinsNoLimit } from "../api";
+import Table from "../../components/Table";
 
 function MainPage() {
   const [coins, setCoins] = useState<CoinObject[]>([]);

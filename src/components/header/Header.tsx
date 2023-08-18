@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import classes from "./header.module.scss";
 import { ModalMyPortfolio } from "../modalMyPortfolio/ModalMyPortfolio";
 import { useParams } from "react-router-dom";
 import { usePortfolioContext } from "../PortfolioContext";
 import { CoinObject, CoinInPortfolioObject } from "../../models";
+import { fetchCoinsLimitOffset } from "../../pages/api";
 
 export const Header = () => {
   const [popularCoins, setPopularCoins] = useState<CoinObject[]>();
@@ -11,10 +12,12 @@ export const Header = () => {
   //an array of objects in portfolio
   const { portfolioData, lastAddedItem } = usePortfolioContext();
 
-  const initialSum = portfolioData.reduce(
-    (sum: number, item: CoinInPortfolioObject) => sum + item.priceUsd,
-    0
-  );
+  const initialSum = useMemo(() => {
+    return portfolioData.reduce(
+      (sum: number, item: CoinInPortfolioObject) => sum + item.priceUsd,
+      0
+    );
+  }, [portfolioData]);
 
   let oldSum: number, percent: number;
 
@@ -36,10 +39,8 @@ export const Header = () => {
   useEffect(() => {
     const getCoins = async () => {
       //init page
-      const res = await fetch(`https://api.coincap.io/v2/assets?limit=3`);
-      const data = await res.json();
-      console.log(data.data);
-      setPopularCoins(data.data);
+      const res = await fetchCoinsLimitOffset(3);
+      setPopularCoins(res);
     };
 
     getCoins();

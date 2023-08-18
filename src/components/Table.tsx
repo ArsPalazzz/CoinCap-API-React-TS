@@ -1,5 +1,5 @@
-import { CoinObject } from "../../models";
-import classes from "./main.module.scss";
+import { CoinObject } from "../models";
+import classes from "./../pages/MainPage/main.module.scss";
 import { HiPlus } from "react-icons/hi";
 
 interface TableProps {

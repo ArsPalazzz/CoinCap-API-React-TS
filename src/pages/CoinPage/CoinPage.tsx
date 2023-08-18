@@ -4,8 +4,8 @@ import AreaChart from "../../components/charts/area-chart/chart";
 import { ModalAddCoin } from "../../components/modalAddCoin/ModalAddCoin";
 import { useParams } from "react-router-dom";
 import { CoinObject, HistoryObject } from "../../models";
-import { fetchCoin, fetchCoinHistory } from "../../apiRequests/api";
-import ViewInfo from "./ViewInfo";
+import { fetchCoin, fetchCoinHistory } from "../api";
+import ViewInfo from "../../components/ViewInfo";
 
 export const CoinPage = () => {
   //заглушка

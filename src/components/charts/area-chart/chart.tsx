@@ -12,6 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import { HistoryObject } from "../../../models";
+import { useMemo } from "react";
 
 ChartJS.register(
   CategoryScale,
@@ -25,9 +26,13 @@ ChartJS.register(
 );
 
 const AreaChart = ({ value }: AreaChartProps) => {
-  const labels = value
-    .filter((item: HistoryObject, index: number) => index % 3 === 0)
-    .map((item: HistoryObject) => item.date.slice(0, -14));
+  const labels = useMemo(
+    () =>
+      value
+        .filter((item: HistoryObject, index: number) => index % 3 === 0)
+        .map((item: HistoryObject) => item.date.slice(0, -14)),
+    [value]
+  );
 
   const chartOptions = {
     responsive: true,

@@ -1,4 +1,4 @@
-import { ViewInfoProps } from "./../../models";
+import { ViewInfoProps } from "../models";
 
 const ViewInfo = ({
   name,

@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import { FC } from "react";
 import { CoinInPortfolioObject } from "./../models";
 import { Dispatch, SetStateAction } from "react";
@@ -30,11 +36,11 @@ export const PortfolioProvider: FC<PortfolioProviderProps> = ({ children }) => {
     : null;
   const [lastAddedItem, setLastAddedItem] = useState(initialLastAddedItem);
 
-  const removeItemFromPortfolio = (itemId: string) => {
+  const removeItemFromPortfolio = useCallback((itemId: string) => {
     setPortfolioData((prevData: CoinInPortfolioObject[]) =>
       prevData.filter((item) => item.id !== itemId)
     );
-  };
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("portfolioData", JSON.stringify(portfolioData));
